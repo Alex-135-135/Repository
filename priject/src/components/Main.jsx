@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { Table } from 'antd';
-import AddButton from './AddButton.jsx';
+import AddButton1 from './AddButton1.jsx';
 import { data, columns } from '../data.js';
 
 export default class Main extends Component {
 	state = {
 		data
 	}
-	handleAdd = (elem) => {
+	handleCreate = (elem) => {
 		this.setState({
 			data: [
 				...this.state.data,
@@ -23,7 +23,7 @@ export default class Main extends Component {
 		return (
 			<div>
 			    <Table columns={columns} dataSource={this.state.data} />
-			    <AddButton onClick={this.handleAdd} />
+			    <AddButton1 onClick={this.handleCreate} />
 			</div>
 		)
 	}

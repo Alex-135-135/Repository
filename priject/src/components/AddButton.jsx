@@ -15,7 +15,7 @@ class AddButton extends Component {
   toggleModal = () => {
     this.setState({
       visible: !this.state.visible,
-       name: '',
+      name: '',
       age: '',
       address: '',
       task: '',
