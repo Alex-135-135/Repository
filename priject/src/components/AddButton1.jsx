@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import 'antd/dist/antd.css';
-import { Button, Modal, Form, Input, Radio } from 'antd';
+import { Button, Modal, Form, Input, DatePicker } from 'antd';
 
 const FormItem = Form.Item;
 
@@ -20,39 +20,32 @@ const CollectionCreateForm = Form.create()(
           onOk={onCreate}
         >
           <Form layout="vertical">
-            <FormItem label="Name">
-              {getFieldDecorator('name', {
-                rules: [{ required: true, message: 'Please input the name!' }],
+            <FormItem label="Date">
+              {getFieldDecorator('date', {
+                rules: [{ required: true, message: 'Must be filled!' }],
+              })(
+                <DatePicker />
+              )}
+            </FormItem>
+            <FormItem label="Username">
+              {getFieldDecorator('username', {
+                rules: [{ required: true, message: 'Must be filled!' }],
               })(
                 <Input />
               )}
             </FormItem>
-            <FormItem label="Age">
-              {getFieldDecorator('age', {
-                rules: [{ required: true, message: 'Please input the age!' }],
-              })(
-                <Input type='number'/>
-              )}
-            </FormItem>
-            <FormItem label="Address">
-              {getFieldDecorator('address', {
-                rules: [{ required: true, message: 'Please input the address!' }],
+            <FormItem label="Daily Plan">
+              {getFieldDecorator('dailyPlan', {
+                rules: [{ required: true, message: 'Must be filled!' }],
               })(
                 <Input />
               )}
             </FormItem>
-            <FormItem label="Task">
-              {getFieldDecorator('task', {
-                rules: [{ required: true, message: 'Please input the task!' }],
+            <FormItem label="Future Plan">
+              {getFieldDecorator('futurePlan', {
+                rules: [{ required: true, message: 'Must be filled!' }],
               })(
-                <Input type='number'/>
-              )}
-            </FormItem>
-            <FormItem label="Description">
-              {getFieldDecorator('description', {
-                rules: [{ required: true, message: 'Please input the description!' }],
-              })(
-                <Input.TextArea />
+                <Input />
               )}
             </FormItem>
           </Form>
@@ -81,9 +74,10 @@ class AddButton1 extends Component {
       if (err) {
         return;
       }
-
-      console.log('Received values of form: ', values);
+     
+      console.log('Received values of form: ',   values );
       this.props.onClick(values);
+      
       form.resetFields();
       this.setState({ visible: false });
     });
