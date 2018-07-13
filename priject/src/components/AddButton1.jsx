@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import 'antd/dist/antd.css';
 import { Button, Modal, Form, Input, DatePicker } from 'antd';
+import moment from 'moment';
 
 const FormItem = Form.Item;
 
@@ -24,7 +25,7 @@ const CollectionCreateForm = Form.create()(
               {getFieldDecorator('date', {
                 rules: [{ required: true, message: 'Must be filled!' }],
               })(
-                <DatePicker />
+                <DatePicker selected={moment()} />
               )}
             </FormItem>
             <FormItem label="Username">
@@ -74,6 +75,9 @@ class AddButton1 extends Component {
       if (err) {
         return;
       }
+      //var date1 = values.date._d;
+      //delete values.date;
+      //var values1 = date1 + values; 
      
       console.log('Received values of form: ',   values );
       this.props.onClick(values);
@@ -104,4 +108,3 @@ class AddButton1 extends Component {
 
 export default AddButton1
 
-//ReactDOM.render(<CollectionsPage />, mountNode);

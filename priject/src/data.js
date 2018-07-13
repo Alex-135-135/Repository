@@ -1,19 +1,19 @@
 export const data =  [{
   key: 1,
   date: '12.07.2018',
-  username: 'lnlhntr',
+  username: 'Alex-135-125',
   dailyPlan: 'some text',
   futurePlan: 'also some text',
 }, {
   key: 2,
   date: '12.07.2018',
-  username: 'lnlhntr',
+  username: 'Alex-135-125',
   dailyPlan: 'some text',
   futurePlan: 'also some text',
 }, {
   key: 3,
   date: '12.07.2018',
-  username: 'lnlhntr',
+  username: 'Alex-135-125',
   dailyPlan: 'some text',
   futurePlan: 'also some text',
 }];
