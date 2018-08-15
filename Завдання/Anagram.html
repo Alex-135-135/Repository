@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html>
+ <head>
+  <title>1</title>
+ </head>  
+ <body> 
+    <script type="text/javascript">
+            const first = "Tom Marvolo Riddle";
+            const second = "I am Lord Voldemort";
+
+            function isAnagramIgnoringSpaces (first, second) {
+                var a=first.toLowerCase().replace(/ /g, '').split('').sort().toString(),
+                    b=second.toLowerCase().replace(/ /g, '').split('').sort().toString();
+                if(a==b){
+                    return true;
+                }
+                else{ return false;}
+                
+            };
+
+            document.body.innerHTML = isAnagramIgnoringSpaces(first, second);
+    </script>
+</body>
+</html>
+
