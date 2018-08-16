@@ -58,13 +58,18 @@ input[type= button]:hover {
                 taskcop2=tasks.slice(),
                 y=random(0, 3);
             
-
             for(var i = 0; i < 4; i++){
                 
                     rando = random(1, 3);
                     a2 += rando;
-                var rand = Math.floor(Math.random() *  taskcop2.length);
-                arr2[i] = '<li>' + taskcop2[rand]+ ' ' + rando+ 'h' +'</li>';
+                var rand = Math.floor(Math.random() *  taskcop2.length),
+                    ran = Math.floor(Math.random() *  ta.length);
+                    if(taskcop2[rand] == 'testing/assistance'){
+                        arr2[i] = '<li>' + taskcop2[rand]+ ' ' + ta[ran] + ' ' + rando  + 'h' +'</li>';
+                    }else{
+                        arr2[i] = '<li>' + taskcop2[rand]+ ' ' + rando + 'h' +'</li>';
+                    }
+                        
                 taskcop2.splice(rand, 1);                     
             }
 
