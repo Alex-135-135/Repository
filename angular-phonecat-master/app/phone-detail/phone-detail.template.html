@@ -1,0 +1,26 @@
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-2">
+      <!--Sidebar content-->
+
+      <a  href="#!/phones">Головна</a>
+
+    </div>
+    <div class="col-md-10">
+      <!--Body content-->
+
+      <ul class="phones">
+        <li ng-repeat="phone in $ctrl.phones"
+            class="thumbnail phone-list-item">
+          <a class="thumb">
+            <img ng-src="{{phone.imageUrl}}" alt="{{phone.name}}" />
+          </a>
+          <p>{{phone.name}}</p>
+          <button>Видалити з корзини</button>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</div>
