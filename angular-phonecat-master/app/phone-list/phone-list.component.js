@@ -1,5 +1,5 @@
 'use strict';
-
+var arr=[],i=-1;
 // Register `phoneList` component, along with its associated controller and template
 angular.
   module('phoneList').
@@ -11,4 +11,13 @@ angular.
         this.orderProp = 'age';
       }
     ]
-  });
+  })
+  .controller('myCtrl', function($scope) {
+    $scope.myFunc = function(id){
+      console.log(id);
+      i++;
+      arr[i]=id;
+      console.log(i);
+      localStorage.setItem('Data', JSON.stringify(arr));
+    }
+});

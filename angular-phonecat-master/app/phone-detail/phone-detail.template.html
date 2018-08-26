@@ -17,7 +17,9 @@
             <img ng-src="{{phone.imageUrl}}" alt="{{phone.name}}" />
           </a>
           <p>{{phone.name}}</p>
-          <button>Видалити з корзини</button>
+          <div ng-controller="Delete">
+            <button ng-click="Delete(phone)">Видалити з корзини</button>
+          <div>
         </li>
       </ul>
 

@@ -16,7 +16,9 @@
             <img ng-src="{{phone.imageUrl}}" alt="{{phone.name}}" />
           </a>
           <p>{{phone.name}}</p>
-          <button ng-click="">Додати до корзини</button>
+          <div ng-controller="myCtrl">
+            <button ng-click="myFunc(phone)">Додати до корзини</button>
+          <div>
         </li>
       </ul>
     </div>
