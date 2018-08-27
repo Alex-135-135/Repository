@@ -1,28 +1,30 @@
 
-<div class="container-fluid">
+<div class="container-fluid" ng-controller="deleteFromBasket">
   <div class="row">
     <div class="col-md-2">
-      <!--Sidebar content-->
-
       <a  href="#!/phones">Головна</a>
-
     </div>
+    <div ng-show="isOpen">My Div</div>
+      <p>{{qwert}}</p>
     <div class="col-md-10">
-      <!--Body content-->
 
       <ul class="phones">
-        <li ng-repeat="phone in $ctrl.phones"
+        <li ng-repeat="phone in phones"
             class="thumbnail phone-list-item">
           <a class="thumb">
             <img ng-src="{{phone.imageUrl}}" alt="{{phone.name}}" />
           </a>
           <p>{{phone.name}}</p>
-          <div ng-controller="Delete">
-            <button ng-click="Delete(phone)">Видалити з корзини</button>
           <div>
+            <button ng-click="deleteFromBasket(phone.id)">Видалити з корзини</button>
+          <div>
+          <div style="margin: -55px 300px; ">
+            <button ng-click="addGoods(phone.id)">+</button>
+            <p style="margin: 0px 6px;">{{phone.count}}</p>
+            <button ng-click="deleteGoods(phone.id)">-</button>
+          </div>
         </li>
       </ul>
-
     </div>
   </div>
 </div>

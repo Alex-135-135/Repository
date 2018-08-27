@@ -1,23 +1,17 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-2">
-      <!--Sidebar content-->
-
       <a href="#!/phones/basket">Корзина</a>
-
     </div>
     <div class="col-md-10">
-      <!--Body content-->
-
       <ul class="phones">
-        <li ng-repeat="phone in $ctrl.phones"
-            class="thumbnail phone-list-item">
+        <li ng-repeat="phone in $ctrl.phones" class="thumbnail phone-list-item">
           <a class="thumb">
             <img ng-src="{{phone.imageUrl}}" alt="{{phone.name}}" />
           </a>
           <p>{{phone.name}}</p>
-          <div ng-controller="myCtrl">
-            <button ng-click="myFunc(phone)">Додати до корзини</button>
+          <div>
+            <button ng-click="$ctrl.addInBasket(phone)">Додати до корзини</button>
           <div>
         </li>
       </ul>

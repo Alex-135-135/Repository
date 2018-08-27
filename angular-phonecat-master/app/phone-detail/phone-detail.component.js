@@ -1,30 +1,30 @@
 'use strict';
-// Register `phoneDetail` component, along with its associated controller and template
-// Зареєструйте компонент `phoneDetail` разом із відповідним контролером і шаблоном
+console.log(JSON.parse(localStorage.getItem('basketData')));
 angular.
   module('phoneDetail').
   component('phoneDetail', {
     templateUrl: 'phone-detail/phone-detail.template.html',
-    controller: ['Phone',
-      function PhoneListController(Phone) {
-        var a=JSON.parse(localStorage.getItem('Data'));
-        this.phones = a
-        this.orderProp = 'age';
-        //console.log(a);
-      }
-    ]
+    controller: ['Phone', function BasketListController() { }]
   })
-    .controller('Delete', function($scope) {
-    $scope.Delete = function(id){
-      var a=JSON.parse(localStorage.getItem('Data'));
-      console.log(a);
-      console.log(id);
-      for (var i = 0; i < a.length; i++) {
-    if(a[i]==id){
-          console.log('ffsfsre')
-        }
-      }
-          
-      
-    }
-});
+  .controller('deleteFromBasket', $scope => {
+    $scope.phones = JSON.parse(localStorage.getItem('basketData'))
+    console.log($scope.phones);
+    if($scope.phones.length==0){$scope.qwert= 'Корзина пуста';}
+
+    $scope.deleteFromBasket = id => {
+      $scope.phones = $scope.phones.filter(i => i.id !== id);
+      if($scope.phones.length==0){$scope.qwert= 'Корзина пуста';}
+      localStorage.setItem('basketData', JSON.stringify($scope.phones));
+      toastr.success('Have fun storming the castle!', 'Miracle Max Says')
+    } 
+     $scope.addGoods = id => {
+      let arr = $scope.phones.filter(i => i.id == id);
+      arr[0].count++;
+      localStorage.setItem('basketData', JSON.stringify($scope.phones));
+    } 
+    $scope.deleteGoods = id => {
+      let arr = $scope.phones.filter(i => i.id == id);
+      arr[0].count>1 ? arr[0].count-- : arr[0].count;
+      localStorage.setItem('basketData', JSON.stringify($scope.phones));
+    } 
+  });
