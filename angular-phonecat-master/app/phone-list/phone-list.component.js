@@ -12,7 +12,7 @@ angular.
           let current = arr.find(i => i.id === phone.id);
           current ? current.count++ : arr.push({...phone, count: 1});
           localStorage.setItem('basketData', JSON.stringify(arr));
-         toastr["success"]("Are you the six fingered man?")
+          toastr.success('Товар додано до корзини');
         }
       }
     ]

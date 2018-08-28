@@ -8,14 +8,15 @@ angular.
   })
   .controller('deleteFromBasket', $scope => {
     $scope.phones = JSON.parse(localStorage.getItem('basketData'))
-    console.log($scope.phones);
-    if($scope.phones.length==0){$scope.qwert= 'Корзина пуста';}
+    if($scope.phones.length==0){
+        $scope.qwert= 'Корзина пуста';
+    }
 
     $scope.deleteFromBasket = id => {
       $scope.phones = $scope.phones.filter(i => i.id !== id);
       if($scope.phones.length==0){$scope.qwert= 'Корзина пуста';}
       localStorage.setItem('basketData', JSON.stringify($scope.phones));
-      toastr.success('Have fun storming the castle!', 'Miracle Max Says')
+      toastr.success('Товар видалено корзини');
     } 
      $scope.addGoods = id => {
       let arr = $scope.phones.filter(i => i.id == id);
