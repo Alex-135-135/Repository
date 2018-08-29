@@ -27,7 +27,7 @@ angular.
     $scope.getWeather = (lat, lon) => {
     let urlString = "http://api.openweathermap.org/data/2.5/weather?cnt=5&" + lat + "&"+ lon + "&units=metric&APPID=236612a7763329b46b2c67a6cb5f6455";
         $http({method: 'GET', url: urlString}).
-              then(function success(response) {
+              then( $scope.success = response => {
                   $scope.city = (response.data.name + ", ");
                   $scope.country = response.data.sys.country;
                   currentTempInCelsius = Math.round(response.data.main.temp * 10) / 10;
