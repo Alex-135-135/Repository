@@ -1,10 +1,8 @@
 'use strict';
 
-//let api = "https://fcc-weather-api.glitch.me/api/current?";
 let lat, lon;
 let tempUnit = 'C';
 let currentTempInCelsius;
-let data = [];
 
 angular.
   module('api').
@@ -26,6 +24,7 @@ angular.
 
     $scope.getWeather = (lat, lon) => {
     let urlString = "http://api.openweathermap.org/data/2.5/weather?cnt=5&" + lat + "&"+ lon + "&units=metric&APPID=236612a7763329b46b2c67a6cb5f6455";
+    //let urlString = "http://api.openweathermap.org/data/2.5/weather?cnt=5&lat=10&lon=10&units=metric&APPID=236612a7763329b46b2c67a6cb5f6455";
         $http({method: 'GET', url: urlString}).
               then( $scope.success = response => {
                   $scope.city = (response.data.name + ", ");
