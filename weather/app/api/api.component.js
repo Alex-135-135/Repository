@@ -11,7 +11,7 @@ angular.
     controller: ['Phone',
       function PhoneListController() { }]
   })
-  .controller('deleteFromBasket', ($scope, $http) => {
+  .controller('deleteFromBasket', ($scope, $http, $timeout) => {
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function (position) {
           let lat = "lat=" + position.coords.latitude;
@@ -23,8 +23,7 @@ angular.
       }
 
     $scope.getWeather = (lat, lon) => {
-    let urlString = "http://api.openweathermap.org/data/2.5/weather?cnt=5&" + lat + "&"+ lon + "&units=metric&APPID=236612a7763329b46b2c67a6cb5f6455";
-    //let urlString = "http://api.openweathermap.org/data/2.5/weather?cnt=5&lat=10&lon=10&units=metric&APPID=236612a7763329b46b2c67a6cb5f6455";
+    let urlString = "http://api.openweathermap.org/data/2.5/weather?cnt=5&" + lat + "&"+ lon + "&units=metric&APPID=f6c490f5420f241b364e02736ca2a3da";
         $http({method: 'GET', url: urlString}).
               then( $scope.success = response => {
                   $scope.city = (response.data.name + ", ");
@@ -32,9 +31,7 @@ angular.
                   currentTempInCelsius = Math.round(response.data.main.temp * 10) / 10;
                   $scope.temp = currentTempInCelsius + " " + String.fromCharCode(176);
                   $scope.tempunit = tempUnit;
-                  $scope.desc = "//openweathermap.org/img/w/"+response.data.weather[0].icon+".png"
-                  console.log(response.data);
+                  $scope.desc = "//openweathermap.org/img/w/"+response.data.weather[0].icon+".png";
           });
-  }
+  } 
   });
- 
